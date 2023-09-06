@@ -1,14 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
+'use client';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import "./Profile.css";
-import Navbar from "./../Navbar/Navbar";
-import { selectUser } from "./../../redux/userSlice";
-import { auth } from "../../db/firebase";
+import './Profile.css';
+import Navbar from '../components/Navbar/Navbar';
+import { auth } from '../db/firebase';
+import { selectUser } from '../redux/userSlice';
 
 function Profile() {
   const user = useSelector(selectUser);
-  const { email } = user;
+  const { email } = user || {};
+
   return (
     <div className="profileScreen">
       <Navbar />

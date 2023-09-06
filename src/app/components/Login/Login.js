@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./Login.css";
-import SignUp from "../SignUp/SignUp";
+import React, { useState } from 'react';
+import './Login.css';
+import SignUp from '../SignUp/SignUp';
 
 function Login() {
   const [signIn, setSignIn] = useState(false);

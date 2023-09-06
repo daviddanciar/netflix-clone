@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import "./SignUp.css";
-import { auth } from "../../db/firebase";
+import React, { useRef } from 'react';
+import './SignUp.css';
+import { auth } from '../../db/firebase';
 
 function SignUp() {
   const emailRef = useRef(null);

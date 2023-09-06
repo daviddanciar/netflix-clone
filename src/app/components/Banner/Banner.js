@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import "./Banner.css";
-import axios from "../../api/axios";
-import requests from "../../api/Request";
-import { truncate } from "../../utils/truncateDescription";
+import React, { useEffect, useState } from 'react';
+import './Banner.css';
+import axios from '../../api/axios';
+import requests from '../../api/Request';
+import { truncate } from '../../utils/truncateDescription';
 
 function Banner() {
   const [movie, setMovie] = useState([]);
-  const { title, name, original_name, overview } = movie;
+  const { title, name, original_name, overview } = movie || {};
 
   useEffect(() => {
     async function fetchData() {
@@ -25,9 +25,9 @@ function Banner() {
     <header
       className="banner"
       style={{
-        backgroundSize: "cover",
+        backgroundSize: 'cover',
         backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
-        backgroundPosition: "center center",
+        backgroundPosition: 'center center',
       }}
     >
       <div className="banner__contents">
