@@ -8,7 +8,7 @@ import Home from './components/Homescreen/Home';
 import { auth } from './db/firebase';
 import '../app/components/App.css';
 
-function App() {
+export const App = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -30,6 +30,6 @@ function App() {
   }, [dispatch]);
 
   return <div className="app">{!user ? <Login /> : <Home />}</div>;
-}
+};
 
 export default App;

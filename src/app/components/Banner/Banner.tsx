@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import './Banner.css';
-import axios from '../../api/axios';
 import requests from '../../api/Request';
 import { truncate } from '../../utils/truncateDescription';
+import { useMovieData } from '../../hooks/useMovieData';
 
-function Banner() {
-  const [movie, setMovie] = useState([]);
-  const { title, name, original_name, overview } = movie || {};
+export const Banner = () => {
+  const { movies } = useMovieData(requests.fetchNetflixOriginals);
 
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
-      setMovie(
-        request?.data?.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
-      );
-    }
-
-    fetchData();
-  }, []);
+  const movie = useMemo(() => {
+    return movies?.length
+      ? movies[Math.floor(Math.random() * movies.length - 1)]
+      : console.error('NO MOVIES');
+  }, [movies]);
 
   return (
     <header
@@ -31,16 +23,18 @@ function Banner() {
       }}
     >
       <div className="banner__contents">
-        <h1 className="banner__title">{title || name || original_name}</h1>
+        <h1 className="banner__title">
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
           <button className="banner__button">My list</button>
         </div>
-        <h1 className="banner_description">{truncate(overview, 150)}</h1>
+        <h1 className="banner_description">{truncate(movie?.overview, 150)}</h1>
       </div>
       <div className="banner--fadeButton" />
     </header>
   );
-}
+};
 
 export default Banner;

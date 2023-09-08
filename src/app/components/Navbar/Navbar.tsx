@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 import './Navbar.css';
 
-function Navbar() {
+export const Navbar = () => {
   const [show, handleShow] = useState(false);
-  const router = useRouter();
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) {
@@ -41,6 +39,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

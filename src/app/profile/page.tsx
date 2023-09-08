@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar/Navbar';
 import { auth } from '../db/firebase';
 import { selectUser } from '../redux/userSlice';
 
-function Profile() {
+export const Profile = () => {
   const user = useSelector(selectUser);
   const { email } = user || {};
 
@@ -37,6 +37,6 @@ function Profile() {
       </div>
     </div>
   );
-}
+};
 
 export default Profile;
