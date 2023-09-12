@@ -13,6 +13,6 @@ export function useMovieData(endpoint: string) {
       setIsLoading(false);
     });
   }, [endpoint]);
-  console.log(movies);
+
   return { isLoading, movies };
 }
