@@ -1,14 +1,12 @@
-const API_KEY = 'b14a42daa2aa006a13f514afa16e068f';
-
 const requests = {
-  fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
-  fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
-  fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
-  fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
-  fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
-  fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
-  fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
-  fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
+  fetchTrending: process.env.NEXT_PUBLIC_FETCH_TRENDING,
+  fetchNetflixOriginals: process.env.NEXT_PUBLIC_FETCH_NETFLITX_ORIGINALS,
+  fetchTopRated: process.env.NEXT_PUBLIC_FETCH_TOP_RATED,
+  fetchActionMovies: process.env.NEXT_PUBLIC_FETCH_ACTION_MOVIES,
+  fetchComedyMovies: process.env.NEXT_PUBLIC_FETCH_COMEDY_MOVIES,
+  fetchHorrorMovies: process.env.NEXT_PUBLIC_FETCH_HORROR_MOVIES,
+  fetchRomanceMovies: process.env.NEXT_PUBLIC_FETCH_ROMANCE_MOVIES,
+  fetchDocumentaries: process.env.NEXT_PUBLIC_FETCH_DOCUMENTARIES,
 };
 
 export default requests;

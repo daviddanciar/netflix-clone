@@ -24,7 +24,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/components/Profile/Page.js",
-    "src/app/profile/page.js"
+    "src/app/profile/page.js",
+    "src/app/db/firebase.ts"
   ],
   "exclude": ["node_modules"]
 }
