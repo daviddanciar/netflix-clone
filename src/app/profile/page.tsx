@@ -3,11 +3,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import './Profile.css';
-import Navbar from '../components/Navbar/Navbar';
-import { auth } from '../db/firebase';
-import { selectUser } from '../redux/userSlice';
+import { selectUser } from '../../redux/userSlice';
+import Navbar from '../../components/Navbar/Navbar';
+import { auth } from '../../db/firebase';
 
-export const Profile = () => {
+export default function Page() {
   const user = useSelector(selectUser);
   const { email } = user || {};
 
@@ -37,6 +37,4 @@ export const Profile = () => {
       </div>
     </div>
   );
-};
-
-export default Profile;
+}
