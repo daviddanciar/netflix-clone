@@ -5,12 +5,13 @@ import { truncate } from '../../utils/truncateDescription';
 import { useMovieData } from '../../hooks/useMovieData';
 
 export const Banner = () => {
-  const { movies } = useMovieData(requests.fetchNetflixOriginals);
+  const fetchNeftlix = requests.fetchNetflixOriginals || '';
+  const { movies } = useMovieData(fetchNeftlix);
 
   const movie = useMemo(() => {
-    return movies?.length
+    return movies.length
       ? movies[Math.floor(Math.random() * movies.length - 1)]
-      : console.error('NO MOVIES');
+      : null;
   }, [movies]);
 
   return (
@@ -23,9 +24,7 @@ export const Banner = () => {
       }}
     >
       <div className="banner__contents">
-        <h1 className="banner__title">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
+        <h1 className="banner__title">{movie?.name || movie?.original_name}</h1>
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
           <button className="banner__button">My list</button>
