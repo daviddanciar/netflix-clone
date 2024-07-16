@@ -11,6 +11,7 @@ interface MoviesData {
 export function useMovieData(endpoint: string): MoviesData {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     axios.get(endpoint).then((result) => {
       setMovies(result?.data?.results);

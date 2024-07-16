@@ -9,7 +9,7 @@ export const Banner = () => {
   const { movies } = useMovieData(fetchNeftlix);
 
   const movie = useMemo(() => {
-    return movies.length
+    return movies?.length
       ? movies[Math.floor(Math.random() * movies.length - 1)]
       : null;
   }, [movies]);
